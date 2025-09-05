@@ -1,0 +1,10 @@
+/* Styles for Register page */
+
+.registerPage {
+  min-height: 70vh;
+}
+
+.registerCard {
+  max-width: 460px;
+  width: 100%;
+}

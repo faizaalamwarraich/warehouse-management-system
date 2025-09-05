@@ -1,0 +1,10 @@
+/* Styles for Login page */
+
+.loginPage {
+  min-height: 70vh;
+}
+
+.loginCard {
+  max-width: 420px;
+  width: 100%;
+}

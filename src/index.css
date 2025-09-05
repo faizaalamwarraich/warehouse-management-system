@@ -1,0 +1,62 @@
+:root {
+  --wms-navbar-height: 56px;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fb;
+  color: #212529;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* Base font size scales with viewport for better readability */
+html { font-size: 15px; }
+@media (min-width: 576px) { html { font-size: 15.5px; } }
+@media (min-width: 768px) { html { font-size: 16px; } }
+@media (min-width: 992px) { html { font-size: 16.5px; } }
+@media (min-width: 1200px) { html { font-size: 17px; } }
+
+/* Sidebar and content helpers */
+.sidebar-lg {
+  min-height: calc(100vh - var(--wms-navbar-height));
+}
+
+.content-wrap {
+  min-height: calc(100vh - var(--wms-navbar-height) - 56px);
+}
+
+/* Desktop sidebar */
+.sidebar {
+  width: 240px;
+  transition: width 0.2s ease;
+}
+.sidebar.collapsed {
+  width: 72px;
+}
+.sidebar .nav .nav-link {
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+}
+.sidebar.collapsed .nav .nav-link {
+  justify-content: center;
+}
+.sidebar .nav .nav-link .label {
+  transition: opacity 0.15s ease;
+}
+.sidebar.collapsed .nav .nav-link .label {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/* Tables */
+table thead.sticky-top { top: 0; z-index: 1; }
+
+/* Utility tweaks */
+.bg-light-subtle { background-color: #eef2f7 !important; }
+.bg-danger-subtle { background-color: #f8d7da !important; }

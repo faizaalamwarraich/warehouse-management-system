@@ -1,0 +1,14 @@
+/* Styles for ProductDetail page */
+
+.page-product-detail .card {
+  border-radius: 8px;
+}
+
+.page-product-detail .card-header {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.page-product-detail dl dt {
+  color: #6c757d;
+}

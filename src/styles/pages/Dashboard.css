@@ -1,0 +1,14 @@
+/* Styles for Dashboard page */
+
+.page-dashboard .card {
+  border-radius: 8px;
+}
+
+.page-dashboard .card-header {
+  border-bottom: 1px solid rgba(230, 147, 224, 0.06);
+}
+
+.page-dashboard .display-6 {
+  font-weight: 600;
+}
+

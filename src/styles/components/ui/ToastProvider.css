@@ -1,0 +1,5 @@
+/* Styles for ToastProvider component */
+
+.wms-toast-container {
+  z-index: 1080;
+}

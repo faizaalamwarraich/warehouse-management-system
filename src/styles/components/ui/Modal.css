@@ -1,0 +1,10 @@
+/* Styles for Modal component */
+
+.wms-modal-backdrop {
+  z-index: 1050;
+}
+
+.wms-modal {
+  display: block;
+  z-index: 1055;
+}

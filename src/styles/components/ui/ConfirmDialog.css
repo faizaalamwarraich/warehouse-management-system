@@ -1,0 +1,5 @@
+/* Styles for ConfirmDialog component */
+
+.wms-confirm-modal {
+  display: block; /* ensure visibility when shown */
+}
