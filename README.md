@@ -1,69 +1,96 @@
-# React + TypeScript + Vite
+# 📦 Warehouse Management System (WMS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-featured **Warehouse Management System (WMS)** built with **React, Context API, and Bootstrap 5**, focused on **product inventory, stock management, and salesman assignments**.  
+This project demonstrates a professional **UI/UX**, complete **CRUD operations**, and **localStorage-based persistence** with a modular architecture.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+### 🔐 Authentication
+- Basic **login screen** (stub only, no backend).
+- **Protected routes** (requires login).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 📦 Products Module
+- **CRUD** (Create, Read, Update, Delete).
+- **10 fixed categories** (seeded at startup).
+- **Filter by category** (single select).
+- **Sorting** (Name, SKU, Price, Stock — Asc/Desc).
+- **Search** (by Name or SKU, with debounce).
+- **Pagination** (10–20 items per page, user selectable).
+- **Low-stock highlighting** (threshold configurable).
+- **Stock value shown** in product list + dashboard.
+
+### 👥 Salesmen Module
+- **CRUD** for salesmen.
+- **Assigned stock view** (read-only list + totals).
+
+### 📊 Stock Management
+- **Assign stock** to salesmen (deducts from product stock).
+- **Validation**: Prevent over-assignment if requested qty > available stock.
+- **Manual stock adjustments** (+/– with note).
+- **Transaction log** with product, qty change, reason, date, and user.
+
+### 📑 Stock Transactions
+- Tracks all stock movements.
+- Reasons: creation, adjustment, assignment.
+- **Linked to assignments** (refId).
+- **Non-removable logs** (even if product deleted).
+
+### 🖥️ Dashboard
+- **KPIs**:
+  - Total SKUs
+  - Total Stock
+  - Low-stock count
+  - Assignments this week
+- **Recent transactions** (latest 10).
+
+### ⚙️ Tech & Architecture
+- **Stack**: React, React Router, Context API, Bootstrap 5.
+- **Data**: In-memory with localStorage persistence.
+- **Feature-based folder structure**.
+- **Reusable components**:
+  - DataTable, Pagination, SearchBar, SortControl, CategoryFilter
+  - ProductForm, SalesmanForm, AssignmentForm
+  - StatsCard, Toast, ConfirmDialog
+- **Performance**:
+  - Debounced search (300ms).
+  - Memoized lists.
+- **Accessibility**:
+  - Labels, focus states, keyboard navigation.
+
+---
+
+## 📂 Data Models
 
 ```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+// Product
+{ id, name, sku, categoryId, price, stock, status, createdAt, updatedAt }
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+// Category
+{ id, name }
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+// Salesman
+{ id, name, phone, region, status, createdAt }
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+// Assignment
+{ id, salesmanId, items: [{ productId, qty }], note, createdAt }
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+// StockTransaction
+{ id, productId, delta, reason, refId?, createdAt }
+Installation & Setup
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Clone the repository
+
+git clone https://github.com/your-username/warehouse-management-system.git
+cd warehouse-management-system
+
+
+Install dependencies
+
+npm install
+
+
+Run the app
+
+npm start
