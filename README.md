@@ -58,8 +58,25 @@ This project demonstrates a professional **UI/UX**, complete **CRUD operations**
   - Memoized lists.
 - **Accessibility**:
   - Labels, focus states, keyboard navigation.
-
 ---
+
+## 🖼️ Screenshots
+
+### 🧭 Dashboard
+![Dashboard](./public/dashboard.png)
+
+### 🧾 Products
+![Products](./public/products.png)
+
+### 🧾 Salesmen
+![Salesmen](./public/salesmen.png)
+
+### 🧾 Assignments
+![Assignments](./public/Assignments.png)
+
+### 🧾 Settings
+![Settings](./public/settings.png)
+
 
 ## 📂 Data Models
 
